@@ -1,42 +1,42 @@
 [
   {
     "id": 1,
-    "name": "Product 1",
+    "name": "Salto Alto Feminino Preto Vizzano",
     "description": "Description for Product 1",
     "category": "Category A",
-    "thumbnail": "https://via.placeholder.com/150",
+    "thumbnail": "http://localhost:3000/images/thumbnails/5c5bec69-29b3-42b8-a2a8-c99f37b14ba4.png",
     "price": 19.99
   },
   {
     "id": 2,
-    "name": "Product 2",
+    "name": "Sapato Social Couro Legítimo Masculino",
     "description": "Description for Product 2",
     "category": "Category B",
-    "thumbnail": "https://via.placeholder.com/150",
+    "thumbnail": "http://localhost:3000/images/thumbnails/9fee0c3e-03f4-4fc6-8944-f637f1dee8c0.png",
     "price": 29.99
   },
   {
     "id": 3,
-    "name": "Product 3",
+    "name": "Salto Alto Feminino Fiocco Di Perla",
     "description": "Description for Product 3",
     "category": "Category A",
-    "thumbnail": "https://via.placeholder.com/150",
+    "thumbnail": "http://localhost:3000/images/thumbnails/73540dff-d30b-477e-b2fd-5927241bd50b.png",
     "price": 39.99
   },
   {
     "id": 4,
-    "name": "Product 4",
+    "name": "Salto Alto Feminino Vermelho Vizzano",
     "description": "Description for Product 4",
     "category": "Category C",
-    "thumbnail": "https://via.placeholder.com/150",
+    "thumbnail": "http://localhost:3000/images/thumbnails/d7faec59-82ab-4268-821c-41bd390d3501.png",
     "price": 49.99
   },
   {
     "id": 5,
-    "name": "Product 5",
+    "name": "Sandalia Feminina Vermelho Bruscci",
     "description": "Description for Product 5",
     "category": "Category B",
-    "thumbnail": "https://via.placeholder.com/150",
+    "thumbnail": "http://localhost:3000/images/thumbnails/59abf756-d5f0-431d-bb52-f9c8086dc60d.png",
     "price": 59.99
   }
 ]
