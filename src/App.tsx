@@ -1,20 +1,22 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import ProductList from './components/ProductList';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { Provider } from 'react-redux';
+import store from './store/store';
 import ProductDetails from './components/ProductDetails';
 import ProductFilter from './components/ProductFilter';
 
 const App: React.FC = () => {
   return (
-    <Router>
-      <div>
-        <Routes>
-          <Route path="/" element={<ProductList />} />
-          <Route path="/produto/:id" element={<ProductDetails />} />
-        </Routes>
-        <ProductFilter />
-      </div>
-    </Router>
+    <Provider store={store}>
+      <BrowserRouter>
+        <div>
+          <Routes>
+            <Route path="/produto/:id" element={<ProductDetails />} />
+          </Routes>
+          <ProductFilter />
+        </div>
+      </BrowserRouter>
+    </Provider>
   );
 };
 

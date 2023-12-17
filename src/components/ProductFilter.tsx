@@ -1,9 +1,17 @@
 import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { selectProduct } from '../actions/productActions';
+import { Link } from 'react-router-dom';
 import products from '../data/products.json';
 
 const ProductFilter: React.FC = () => {
   const [searchTerm, setSearchTerm] = useState<string>('');
 
+  const dispatch = useDispatch();
+
+  const handleProductClick = (productId: number) => {
+    dispatch(selectProduct(productId));
+  };
   const handleSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSearchTerm(e.target.value);
   };
@@ -25,7 +33,10 @@ const ProductFilter: React.FC = () => {
       />
       <ul>
         {filteredProducts.map((product) => (
-          <li key={product.id}>{product.name}</li>
+
+          <li>
+            <Link to={`/produto/${product.id}`}>{product.name}</Link>
+          </li>
         ))}
       </ul>
     </div>
