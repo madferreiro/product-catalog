@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
-import { selectProduct } from '../actions/productActions';
+import { selectProduct } from '../actions/ProductActions';
 import { Link } from 'react-router-dom';
-import { filterProducts } from '../services/product.service';
+import { filterProducts } from '../services/ProductService';
 
 const ProductFilter: React.FC = () => {
   const [searchTerm, setSearchTerm] = useState<string>('');

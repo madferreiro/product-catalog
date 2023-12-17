@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { useSelector } from 'react-redux';
-import { getProductById } from '../services/product.service';
+import { getProductById } from '../services/ProductService';
 
 const ProductDetails: React.FC = () => {
   const { id } = useParams<{ id: string }>();
