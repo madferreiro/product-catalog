@@ -1,12 +1,17 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { useSelector } from 'react-redux';
-import products from '../data/products.json';
+import { getProductById } from '../services/product.service';
 
 const ProductDetails: React.FC = () => {
   const { id } = useParams<{ id: string }>();
   const selectedProductId = useSelector((state: any) => state.selectedProductId);
-  const product = products.find((p) => p.id === parseInt(id || ""));
+  const [product, setProduct] = useState<any>(undefined);
+  useEffect(() => {
+    getProductById(parseInt(id || "")).then((productFound) => {
+      setProduct(productFound);
+    });
+  }, [id]);
 
   if (!product) {
     return <div>Produto não encontrado</div>;

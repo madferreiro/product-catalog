@@ -1,11 +1,12 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { selectProduct } from '../actions/productActions';
 import { Link } from 'react-router-dom';
-import products from '../data/products.json';
+import { filterProducts } from '../services/product.service';
 
 const ProductFilter: React.FC = () => {
   const [searchTerm, setSearchTerm] = useState<string>('');
+  const [productList, setProductList] = useState<any[]>([]);
 
   const dispatch = useDispatch();
 
@@ -16,11 +17,11 @@ const ProductFilter: React.FC = () => {
     setSearchTerm(e.target.value);
   };
 
-  const filteredProducts = products.filter(
-    (product) =>
-      product.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      product.category.toLowerCase().includes(searchTerm.toLowerCase())
-  );
+  useEffect(() => {
+    filterProducts(searchTerm).then((products) => {
+      setProductList(products);
+    });
+  }, [searchTerm]);
 
   return (
     <div>
@@ -32,9 +33,9 @@ const ProductFilter: React.FC = () => {
         onChange={handleSearch}
       />
       <ul>
-        {filteredProducts.map((product) => (
+        {productList.map((product) => (
 
-          <li>
+          <li onClick={() => handleProductClick(product.id)} key={product.id}>
             <Link to={`/produto/${product.id}`}>{product.name}</Link>
           </li>
         ))}
