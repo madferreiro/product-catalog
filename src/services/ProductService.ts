@@ -1,18 +1,34 @@
 // src/services/product.service.ts
 import products from '../data/products.json';
+import { Product } from '../Types/ProductTypes';
 
-export const getAllProducts = async () => {
-    return products;
-};
 
-export const getProductById = async (productId: number) => {
-    return products.find((product) => product.id === productId);
-};
+export function getAllProducts(): Promise<Product[]> {
+    return new Promise((resolve) => {
+        setTimeout(() => {
+            resolve(products);
+        }, 50);
+    });
+}
 
-export const filterProducts = async (searchTerm: string) => {
-    return products.filter(
-        (product) =>
-            product.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-            product.category.toLowerCase().includes(searchTerm.toLowerCase())
-    );
-};
+export function getProductById(productId: number): Promise<Product | undefined> {
+    return new Promise((resolve) => {
+        setTimeout(() => {
+            resolve(products.find((product) => product.id === productId));
+        }, 50);
+    });
+}
+
+export function filterProducts(searchTerm: string): Promise<Product[]> {
+    return new Promise((resolve) => {
+        setTimeout(() => {
+            resolve(
+                products.filter(
+                    (product) =>
+                        product.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+                        product.category.toLowerCase().includes(searchTerm.toLowerCase())
+                )
+            );
+        }, 50);
+    });
+}

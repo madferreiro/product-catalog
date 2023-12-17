@@ -3,6 +3,8 @@ import { useDispatch } from 'react-redux';
 import { selectProduct } from '../actions/ProductActions';
 import { Link } from 'react-router-dom';
 import { filterProducts } from '../services/ProductService';
+import { Grid } from '@mui/material';
+import ProductItem from './ProductItem';
 
 const ProductFilter: React.FC = () => {
   const [searchTerm, setSearchTerm] = useState<string>('');
@@ -32,14 +34,13 @@ const ProductFilter: React.FC = () => {
         value={searchTerm}
         onChange={handleSearch}
       />
-      <ul>
+      <Grid container spacing={2}>
         {productList.map((product) => (
-
-          <li onClick={() => handleProductClick(product.id)} key={product.id}>
-            <Link to={`/produto/${product.id}`}>{product.name}</Link>
-          </li>
+          <Grid item key={product.id} xs={12} sm={6} md={4} lg={3}>
+            <ProductItem product={product} />
+          </Grid>
         ))}
-      </ul>
+      </Grid>
     </div>
   );
 };
